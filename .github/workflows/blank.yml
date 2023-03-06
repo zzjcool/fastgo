@@ -20,9 +20,13 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: Check out tools repo
+        uses: actions/checkout@master
+        with:
+          repository: zzjcool/tools
+          token: ${{ secrets.TOOLS_PAT }}
       - name: Install
         run: |
-          git clone git@github.com:zzjcool/tools.git
           npm ci
       - name: Build
         run: |
