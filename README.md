@@ -1,1 +1,3 @@
 # fastgo
+
+for ci/cd
